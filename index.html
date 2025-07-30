@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynthiaMall</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script defer src="slider.js"></script>
+    <script defer src="product.js"></script>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">SynthiaMall</div>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button>Search</button>
+        </div>
+        <div class="language-dropdown">
+            <button class="language-btn">
+                <span>English</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul class="language-menu">
+                <li><img src="https://flagcdn.com/us.svg" class="flag-icon" alt="English"> English</li>
+                <li><img src="https://flagcdn.com/vn.svg" class="flag-icon" alt="Tiếng Việt"> Tiếng Việt</li>
+                <li><img src="https://flagcdn.com/fr.svg" class="flag-icon" alt="Français"> Français</li>
+            </ul>
+        </div>
+        <div class="user-controls">
+            <button class="cart"><i class="fas fa-shopping-cart"></i> Total: 0.00 USD</button>
+            <button><i class="fas fa-user-cog"></i> Account Management</button>
+            <button><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </div>
+    </div>
+
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">WHOLESALE WAREHOUSE</a></li>
+            <li><a href="#">FEATURED PRODUCTS</a></li>
+            <li><a href="#">CHEAP PRODUCTS</a></li>
+            <li><a href="#">NEW PRODUCTS</a></li>
+        </ul>
+    </nav>
+
+    <section class="main-content">
+        <aside class="sidebar">
+            <h3><i class="fas fa-list"></i> Danh mục</h3>
+            <ul>
+                <li><i class="fas fa-book"></i> Nhà Sách</li>
+                <li><i class="fas fa-home"></i> Nhà Cửa - Đời Sống</li>
+                <li><i class="fas fa-mobile-alt"></i> Điện Thoại - Máy Tính Bảng</li>
+                <li><i class="fas fa-baby"></i> Đồ Chơi - Mẹ & Bé</li>
+                <li><i class="fas fa-plug"></i> Thiết Bị Số - Phụ Kiện Số</li>
+                <li><i class="fas fa-blender"></i> Điện Gia Dụng</li>
+                <li><i class="fas fa-heartbeat"></i> Làm Đẹp - Sức Khỏe</li>
+                <li><i class="fas fa-car"></i> Ô Tô - Xe Máy - Xe Đạp</li>
+                <li><i class="fas fa-female"></i> Thời trang nữ</li>
+                <li><i class="fas fa-shopping-basket"></i> Bách Hóa Online</li>
+                <li><i class="fas fa-futbol"></i> Thể Thao - Dã Ngoại</li>
+                <li><i class="fas fa-male"></i> Thời trang nam</li>
+                <li><i class="fas fa-globe"></i> Cross Border - Hàng Quốc Tế</li>
+                <li><i class="fas fa-laptop"></i> Laptop - Máy Vi Tính</li>
+            </ul>
+        </aside>
+        <div class="banner">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x450?text=Banner1" alt="Banner 1"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x450?text=Banner2" alt="Banner 2"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x450?text=Banner3" alt="Banner 3"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x450?text=Banner4" alt="Banner 4"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x450?text=Banner5" alt="Banner 5"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <div class="category-grid">
+                <div class="category-item">
+                    <img src="https://via.placeholder.com/50?text=Beauty" class="category-icon" alt="Beauty">
+                    <span>Beauty</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://via.placeholder.com/50?text=Home" class="category-icon" alt="Home & Living">
+                    <span>Home & Living</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://via.placeholder.com/50?text=Health" class="category-icon" alt="Health">
+                    <span>Health</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://via.placeholder.com/50?text=Food" class="category-icon" alt="Food & Beverage">
+                    <span>Food & Beverage</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://via.placeholder.com/50?text=Mother" class="category-icon" alt="Mother and Baby">
+                    <span>Mother and Baby</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://via.placeholder.com/50?text=Fashion" class="category-icon" alt="Fashion accessories">
+                    <span>Fashion accessories</span>
+                </div>
+                <div class="category-item">
+                    <img src="https://via.placeholder.com/50?text=Clock" class="category-icon" alt="Clock">
+                    <span>Clock</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+        </div>
+    </section>
+
+</body>
+</html>
