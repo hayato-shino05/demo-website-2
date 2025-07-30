@@ -3,121 +3,451 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SynthiaMall</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <title>SynthiaMall - Modern Hanami Collection</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script defer src="slider.js"></script>
-    <script defer src="product.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="top-bar">
-        <div class="logo">SynthiaMall</div>
-        <div class="search-box">
-            <input type="text" placeholder="Search">
-            <button>Search</button>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-header">
+            <div class="top-header-content">
+                <div class="header-info">
+                    <span><i class="fas fa-phone"></i> +1 234 567 8900</span>
+                    <span><i class="fas fa-envelope"></i> hello@synthiamall.com</span>
+                </div>
+                <div class="header-info">
+                    <span><i class="fas fa-truck"></i> Free Shipping Over $50</span>
+                    <span><i class="fas fa-heart"></i> Hanami Collection Live</span>
+                </div>
+            </div>
         </div>
-        <div class="language-dropdown">
-            <button class="language-btn">
-                <span>English</span>
-                <i class="fas fa-chevron-down"></i>
-            </button>
-            <ul class="language-menu">
-                <li><img src="https://flagcdn.com/us.svg" class="flag-icon" alt="English"> English</li>
-                <li><img src="https://flagcdn.com/vn.svg" class="flag-icon" alt="Tiếng Việt"> Tiếng Việt</li>
-                <li><img src="https://flagcdn.com/fr.svg" class="flag-icon" alt="Français"> Français</li>
-            </ul>
-        </div>
-        <div class="user-controls">
-            <button class="cart"><i class="fas fa-shopping-cart"></i> Total: 0.00 USD</button>
-            <button><i class="fas fa-user-cog"></i> Account Management</button>
-            <button><i class="fas fa-sign-out-alt"></i> Sign Out</button>
-        </div>
-    </div>
 
-    <nav class="nav-bar">
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">WHOLESALE WAREHOUSE</a></li>
-            <li><a href="#">FEATURED PRODUCTS</a></li>
-            <li><a href="#">CHEAP PRODUCTS</a></li>
-            <li><a href="#">NEW PRODUCTS</a></li>
-        </ul>
-    </nav>
+        <div class="main-header">
+            <div class="main-header-content">
+                <div class="logo">SynthiaMall</div>
+                
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search for cherry blossom deals...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
 
-    <section class="main-content">
+                <div class="user-actions">
+                    <select class="user-btn">
+                        <option>🇺🇸 English</option>
+                        <option>🇻🇳 Tiếng Việt</option>
+                        <option>🇯🇵 日本語</option>
+                    </select>
+                    <button class="user-btn"><i class="fas fa-user"></i></button>
+                    <button class="cart-btn">
+                        <i class="fas fa-shopping-cart"></i> Cart (0) - $0.00
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <div class="nav-content">
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">HOME</a></li>
+                    <li><a href="#">HANAMI COLLECTION</a></li>
+                    <li><a href="#">FEATURED PRODUCTS</a></li>
+                    <li><a href="#">SPRING DEALS</a></li>
+                    <li><a href="#">NEW ARRIVALS</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-layout">
         <aside class="sidebar">
-            <h3><i class="fas fa-list"></i> Danh mục</h3>
-            <ul>
-                <li><i class="fas fa-book"></i> Nhà Sách</li>
-                <li><i class="fas fa-home"></i> Nhà Cửa - Đời Sống</li>
-                <li><i class="fas fa-mobile-alt"></i> Điện Thoại - Máy Tính Bảng</li>
-                <li><i class="fas fa-baby"></i> Đồ Chơi - Mẹ & Bé</li>
-                <li><i class="fas fa-plug"></i> Thiết Bị Số - Phụ Kiện Số</li>
-                <li><i class="fas fa-blender"></i> Điện Gia Dụng</li>
-                <li><i class="fas fa-heartbeat"></i> Làm Đẹp - Sức Khỏe</li>
-                <li><i class="fas fa-car"></i> Ô Tô - Xe Máy - Xe Đạp</li>
-                <li><i class="fas fa-female"></i> Thời trang nữ</li>
-                <li><i class="fas fa-shopping-basket"></i> Bách Hóa Online</li>
-                <li><i class="fas fa-futbol"></i> Thể Thao - Dã Ngoại</li>
-                <li><i class="fas fa-male"></i> Thời trang nam</li>
-                <li><i class="fas fa-globe"></i> Cross Border - Hàng Quốc Tế</li>
-                <li><i class="fas fa-laptop"></i> Laptop - Máy Vi Tính</li>
+            <h3><i class="fas fa-list"></i> Categories</h3>
+            <ul class="category-list">
+                <li><a href="#"><i class="fas fa-palette"></i> Beauty & Cosmetics</a></li>
+                <li><a href="#"><i class="fas fa-home"></i> Home & Living</a></li>
+                <li><a href="#"><i class="fas fa-mobile-alt"></i> Electronics</a></li>
+                <li><a href="#"><i class="fas fa-baby"></i> Mother & Baby</a></li>
+                <li><a href="#"><i class="fas fa-tshirt"></i> Fashion</a></li>
+                <li><a href="#"><i class="fas fa-heartbeat"></i> Health & Wellness</a></li>
+                <li><a href="#"><i class="fas fa-gamepad"></i> Toys & Games</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> Books & Media</a></li>
+                <li><a href="#"><i class="fas fa-dumbbell"></i> Sports & Outdoor</a></li>
+                <li><a href="#"><i class="fas fa-car"></i> Automotive</a></li>
+                <li><a href="#"><i class="fas fa-laptop"></i> Computers</a></li>
+                <li><a href="#"><i class="fas fa-utensils"></i> Food & Beverage</a></li>
             </ul>
         </aside>
-        <div class="banner">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x450?text=Banner1" alt="Banner 1"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x450?text=Banner2" alt="Banner 2"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x450?text=Banner3" alt="Banner 3"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x450?text=Banner4" alt="Banner 4"></div>
-                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x450?text=Banner5" alt="Banner 5"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
 
-            <div class="category-grid">
-                <div class="category-item">
-                    <img src="https://via.placeholder.com/50?text=Beauty" class="category-icon" alt="Beauty">
-                    <span>Beauty</span>
+        <div class="content-area">
+            <!-- Hero Banner -->
+            <section class="hero-banner">
+                <div class="hero-content">
+                    <h1>🌸 Hanami Spring Collection</h1>
+                    <p>Discover the perfect blend of Japanese aesthetics and modern design. Our curated collection brings the serene beauty of cherry blossoms to your everyday life.</p>
+                    <button class="hero-btn">Shop Collection</button>
                 </div>
-                <div class="category-item">
-                    <img src="https://via.placeholder.com/50?text=Home" class="category-icon" alt="Home & Living">
-                    <span>Home & Living</span>
+            </section>
+
+            <!-- Category Showcase -->
+            <section class="category-showcase">
+                <h2>Shop by Category</h2>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <i class="fas fa-palette"></i>
+                        <span>Beauty</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-home"></i>
+                        <span>Home & Living</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>Health</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-utensils"></i>
+                        <span>Food & Beverage</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-baby"></i>
+                        <span>Mother & Baby</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-tshirt"></i>
+                        <span>Fashion</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-clock"></i>
+                        <span>Accessories</span>
+                    </div>
                 </div>
-                <div class="category-item">
-                    <img src="https://via.placeholder.com/50?text=Health" class="category-icon" alt="Health">
-                    <span>Health</span>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="featured-section">
+                <h2>🌸 Featured Products</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">👗</div>
+                        <div class="product-info">
+                            <div class="product-title">Cherry Blossom Dress</div>
+                            <div class="product-price">$89.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">💄</div>
+                        <div class="product-info">
+                            <div class="product-title">Sakura Lipstick Set</div>
+                            <div class="product-price">$45.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">🏮</div>
+                        <div class="product-info">
+                            <div class="product-title">Japanese Lantern</div>
+                            <div class="product-price">$32.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">🍵</div>
+                        <div class="product-info">
+                            <div class="product-title">Cherry Tea Set</div>
+                            <div class="product-price">$67.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">📱</div>
+                        <div class="product-info">
+                            <div class="product-title">Sakura Phone Case</div>
+                            <div class="product-price">$24.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">🎒</div>
+                        <div class="product-info">
+                            <div class="product-title">Spring Handbag</div>
+                            <div class="product-price">$128.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="category-item">
-                    <img src="https://via.placeholder.com/50?text=Food" class="category-icon" alt="Food & Beverage">
-                    <span>Food & Beverage</span>
-                </div>
-                <div class="category-item">
-                    <img src="https://via.placeholder.com/50?text=Mother" class="category-icon" alt="Mother and Baby">
-                    <span>Mother and Baby</span>
-                </div>
-                <div class="category-item">
-                    <img src="https://via.placeholder.com/50?text=Fashion" class="category-icon" alt="Fashion accessories">
-                    <span>Fashion accessories</span>
-                </div>
-                <div class="category-item">
-                    <img src="https://via.placeholder.com/50?text=Clock" class="category-icon" alt="Clock">
-                    <span>Clock</span>
-                </div>
-            </div>
+            </section>
         </div>
-    </section>
+    </main>
 
-    <section class="featured-products">
-        <h2>Featured Products</h2>
-        <div class="product-grid">
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>🌸 SynthiaMall</h3>
+            <p>Where modern design meets timeless Japanese aesthetics</p>
+            <p>&copy; 2025 SynthiaMall. Designed with 🌸 for the modern generation</p>
         </div>
-    </section>
+    </footer>
 
+    <script>
+        // Cart functionality with modern UX
+        let cartCount = 0;
+        let cartTotal = 0;
+        const cartBtn = document.querySelector('.cart-btn');
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const priceText = productCard.querySelector('.product-price').textContent;
+                const price = parseFloat(priceText.replace('$', ''));
+                
+                cartCount++;
+                cartTotal += price;
+                
+                // Update cart display
+                cartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart (${cartCount}) - $${cartTotal.toFixed(2)}`;
+                
+                // Modern feedback animation
+                this.style.background = 'var(--sage-green)';
+                this.innerHTML = '<i class="fas fa-check"></i> Added!';
+                
+                // Product card animation
+                productCard.style.transform = 'scale(0.98)';
+                
+                setTimeout(() => {
+                    this.style.background = '';
+                    this.innerHTML = 'Add to Cart';
+                    productCard.style.transform = '';
+                }, 1500);
+            });
+        });
+
+        // Enhanced search functionality
+        const searchInput = document.querySelector('.search-box input');
+        const searchBtn = document.querySelector('.search-box button');
+
+        searchBtn.addEventListener('click', handleSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') handleSearch();
+        });
+
+        function handleSearch() {
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                // Modern notification style
+                showNotification(`🔍 Searching for: ${searchTerm}`);
+            }
+        }
+
+        // Modern notification system
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 24px;
+                background: var(--gradient-primary);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 12px;
+                box-shadow: var(--shadow-strong);
+                z-index: 10000;
+                font-weight: 600;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Auto remove
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Category interactions with modern UX
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const category = this.querySelector('span').textContent;
+                
+                // Add ripple effect
+                const ripple = document.createElement('div');
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(232, 180, 203, 0.4);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
+                
+                this.appendChild(ripple);
+                
+                showNotification(`🛍️ Browse ${category} category`);
+                
+                setTimeout(() => {
+                    if (ripple.parentNode) {
+                        ripple.parentNode.removeChild(ripple);
+                    }
+                }, 600);
+            });
+        });
+
+        // Add ripple animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            /* Smooth scrolling */
+            html {
+                scroll-behavior: smooth;
+            }
+            
+            /* Loading states */
+            .loading {
+                opacity: 0.7;
+                pointer-events: none;
+            }
+            
+            /* Custom scrollbar */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            
+            ::-webkit-scrollbar-track {
+                background: var(--warm-gray);
+            }
+            
+            ::-webkit-scrollbar-thumb {
+                background: var(--primary-pink);
+                border-radius: 4px;
+            }
+            
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--accent-coral);
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.product-card, .category-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Performance optimization: Debounced resize handler
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Handle responsive adjustments
+                const isMobile = window.innerWidth < 768;
+                document.body.classList.toggle('mobile', isMobile);
+            }, 250);
+        });
+
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && !e.target.matches('input, textarea')) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            
+            if (e.key === 'Escape') {
+                searchInput.blur();
+            }
+        });
+
+        // Modern loading states
+        function showLoading(element) {
+            element.classList.add('loading');
+            element.style.position = 'relative';
+            
+            const loader = document.createElement('div');
+            loader.innerHTML = '🌸';
+            loader.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 24px;
+                animation: spin 1s linear infinite;
+            `;
+            loader.className = 'loader';
+            element.appendChild(loader);
+        }
+
+        function hideLoading(element) {
+            element.classList.remove('loading');
+            const loader = element.querySelector('.loader');
+            if (loader) {
+                loader.remove();
+            }
+        }
+
+        // Add spin animation
+        style.textContent += `
+            @keyframes spin {
+                from { transform: translate(-50%, -50%) rotate(0deg); }
+                to { transform: translate(-50%, -50%) rotate(360deg); }
+            }
+        `;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Stagger animation for initial load
+            const cards = document.querySelectorAll('.product-card, .category-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+            
+            showNotification('🌸 Welcome to SynthiaMall Hanami Collection!');
+        });
+    </script>
 </body>
 </html>
