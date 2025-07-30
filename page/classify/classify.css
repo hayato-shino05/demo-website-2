@@ -1,0 +1,424 @@
+/* Obon Festival Color Scheme - Warm & Spiritual */
+:root {
+    /* Obon Inspired Colors - Lantern & Fire Theme */
+    --obon-orange: #FF8C42;      /* Main lantern orange */
+    --warm-coral: #FF6B35;       /* Deep sunset coral */
+    --golden-yellow: #FFB627;    /* Lantern glow */
+    --soft-amber: #FFCC70;       /* Gentle warm light */
+    --deep-vermillion: #E63946;  /* Traditional red */
+    --sage-mint: #95D5B2;        /* Balance green */
+    
+    /* Primary Neutral Palette */
+    --white: #FFFFFF;
+    --cream: #FFF8F0;            /* Warm cream base */
+    --light-gray: #F7F3F0;       /* Warm light gray */
+    --medium-gray: #F0EBE3;      /* Medium warm gray */
+    --border-gray: #E8DDD4;      /* Warm border */
+    --text-gray: #6C5B47;        /* Warm text gray */
+    --dark-brown: #5D4E37;       /* Deep brown */
+    --charcoal: #2C1810;         /* Warm charcoal */
+    
+    /* Gradients */
+    --gradient-sunset: linear-gradient(135deg, #FF8C42 0%, #FF6B35 100%);
+    --gradient-lantern: linear-gradient(135deg, #FFB627 0%, #FF8C42 100%);
+    --gradient-neutral: linear-gradient(135deg, #FFFFFF 0%, #F7F3F0 100%);
+    --gradient-warm: linear-gradient(135deg, #FFF8F0 0%, #F0EBE3 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(44, 24, 16, 0.06);
+    --shadow-md: 0 4px 16px rgba(44, 24, 16, 0.08);
+    --shadow-lg: 0 8px 32px rgba(44, 24, 16, 0.10);
+    --shadow-warm: 0 4px 20px rgba(255, 140, 66, 0.15); /* Giảm opacity để dịu hơn */
+    --shadow-glow: 0 0 20px rgba(255, 182, 39, 0.2); /* Giảm opacity để dịu hơn */
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Header Styles */
+.header {
+    background: var(--white);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.top-header {
+    background: var(--charcoal);
+    padding: 8px 0;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.top-header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.header-info {
+    display: flex;
+    gap: 32px;
+}
+
+.header-info span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.9;
+}
+
+.main-header {
+    padding: 20px 0;
+    background: var(--white);
+}
+
+.main-header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 240px 1fr 360px;
+    gap: 40px;
+    align-items: center;
+    padding: 0 24px;
+}
+
+/* Logo with Obon Theme */
+.logo {
+    font-size: 32px;
+    font-weight: 800;
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: -0.5px;
+}
+
+.logo::before {
+    content: "🏮";
+    font-size: 36px;
+    filter: drop-shadow(0 2px 4px rgba(255, 140, 66, 0.4));
+}
+
+/* Search Box */
+.search-container {
+    position: relative;
+}
+
+.search-box {
+    display: flex;
+    border: 1px solid var(--border-gray);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: var(--obon-orange);
+    box-shadow: var(--shadow-warm);
+}
+
+.search-box input {
+    flex: 1;
+    padding: 16px 20px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    background: transparent;
+    color: var(--charcoal);
+}
+
+.search-box input::placeholder {
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+.search-box button {
+    background: var(--gradient-sunset);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.search-box button:hover {
+    background: var(--warm-coral);
+    transform: scale(1.02);
+}
+
+/* User Actions */
+.user-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.user-btn {
+    background: var(--light-gray);
+    border: 1px solid var(--border-gray);
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--charcoal);
+    font-family: 'Inter', system-ui, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+}
+
+.user-btn:hover {
+    background: var(--medium-gray);
+    border-color: var(--obon-orange);
+    transform: translateY(-1px);
+}
+
+.cart-btn {
+    background: var(--gradient-sunset);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-warm);
+}
+
+.cart-btn:hover {
+    transform: translateY(-1px); /* Giảm từ -2px để dịu hơn */
+    box-shadow: 0 6px 25px rgba(255, 140, 66, 0.25); /* Giảm opacity nhẹ */
+}
+
+/* Navigation */
+.navigation {
+    background: var(--white);
+    border-top: 1px solid var(--border-gray);
+    padding: 16px 0;
+}
+
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--charcoal);
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 15px;
+}
+
+.nav-menu a:hover {
+    background: var(--light-gray);
+    color: var(--warm-coral);
+    transform: translateY(-1px); /* Giữ nguyên, đã dịu */
+}
+
+.nav-menu a.active {
+    background: var(--gradient-sunset);
+    color: white;
+    box-shadow: var(--shadow-warm);
+}
+
+/* Main Layout */
+.main-layout {
+    max-width: 1400px;
+    margin: 32px auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    padding: 0 24px;
+}
+
+/* Sidebar */
+.sidebar {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--shadow-md);
+    height: fit-content;
+    position: static; /* Đổi sang static để sidebar cuộn theo trang, không cố định */
+    border: 1px solid var(--border-gray);
+}
+
+.sidebar h3 {
+    color: var(--charcoal);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sidebar h3 i {
+    color: var(--obon-orange);
+}
+
+.category-list {
+    list-style: none;
+}
+
+.category-list li {
+    margin-bottom: 8px;
+}
+
+.category-list a {
+    text-decoration: none;
+    color: var(--charcoal);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.category-list a:hover {
+    background: var(--light-gray);
+    color: var(--warm-coral);
+    transform: translateX(2px); /* Giảm từ 4px để dịu hơn */
+}
+
+.category-list i {
+    width: 18px;
+    color: var(--golden-yellow);
+    font-size: 16px;
+}
+
+/* Content Area */
+.content-area {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Footer */
+.footer {
+    background: var(--charcoal);
+    color: var(--white);
+    padding: 48px 0 24px;
+    margin-top: 64px;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.footer-content h3 {
+    margin-bottom: 16px;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.footer-content p {
+    opacity: 0.8;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+/* Product Grid Styles */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-gray);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.product-image {
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--charcoal);
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--warm-coral);
+    margin-bottom: 16px;
+}
+
+.add-to-cart {
+    width: 100%;
+    background: var(--gradient-sunset);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: var(--gradient-lantern);
+    transform: scale(1.02);
+}
