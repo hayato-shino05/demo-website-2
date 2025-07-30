@@ -3,32 +3,35 @@ let cartCount = 0;
 let cartTotal = 0;
 const cartBtn = document.querySelector('.cart-btn');
 
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function() {
-        const productCard = this.closest('.product-card');
-        const priceText = productCard.querySelector('.product-price').textContent;
-        const price = parseFloat(priceText.replace('$', ''));
-        
-        cartCount++;
-        cartTotal += price;
-        
-        // Update cart display
-        cartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart (${cartCount}) - $${cartTotal.toFixed(2)}`;
-        
-        // Modern feedback animation
-        this.style.background = 'var(--sage-mint)';
-        this.innerHTML = '<i class="fas fa-check"></i> Added!';
-        
-        // Product card animation
-        productCard.style.transform = 'scale(0.98)';
-        
-        setTimeout(() => {
-            this.style.background = '';
-            this.innerHTML = 'Add to Cart';
-            productCard.style.transform = '';
-        }, 1500);
+// Function to attach add-to-cart listeners
+function attachAddToCartListeners() {
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const productCard = this.closest('.product-card');
+            const priceText = productCard.querySelector('.product-price').textContent;
+            const price = parseFloat(priceText.replace('$', ''));
+            
+            cartCount++;
+            cartTotal += price;
+            
+            // Update cart display
+            cartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart (${cartCount}) - $${cartTotal.toFixed(2)}`;
+            
+            // Modern feedback animation
+            this.style.background = 'var(--sage-mint)';
+            this.innerHTML = '<i class="fas fa-check"></i> Added!';
+            
+            // Product card animation
+            productCard.style.transform = 'scale(0.98)';
+            
+            setTimeout(() => {
+                this.style.background = '';
+                this.innerHTML = 'Add to Cart';
+                productCard.style.transform = '';
+            }, 1500);
+        });
     });
-});
+}
 
 // Enhanced search functionality
 const searchInput = document.querySelector('.search-box input');
@@ -84,40 +87,6 @@ function showNotification(message) {
     }, 3000);
 }
 
-// Category interactions with modern UX
-document.querySelectorAll('.category-card').forEach(card => {
-    card.addEventListener('click', function() {
-        const category = this.querySelector('span').textContent;
-        
-        // Add ripple effect
-        const ripple = document.createElement('div');
-        ripple.style.cssText = `
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 140, 66, 0.4);
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
-        `;
-        
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
-        ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
-        
-        this.appendChild(ripple);
-        
-        showNotification(`🛍️ Browse ${category} category`);
-        
-        setTimeout(() => {
-            if (ripple.parentNode) {
-                ripple.parentNode.removeChild(ripple);
-            }
-        }, 600);
-    });
-});
-
 // Add dynamic styles for animations
 const style = document.createElement('style');
 style.textContent = `
@@ -160,14 +129,6 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 }, observerOptions);
-
-// Observe elements for animation
-document.querySelectorAll('.product-card, .category-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
 
 // Performance optimization: Debounced resize handler
 let resizeTimeout;
@@ -221,14 +182,86 @@ function hideLoading(element) {
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
-    // Stagger animation for initial load
-    const cards = document.querySelectorAll('.product-card, .category-card');
-    cards.forEach((card, index) => {
+    showNotification('🏮 Welcome to SynthiaMall Obon Festival Collection!');
+
+    // Render featured products
+    const featuredGrid = document.querySelector('#featured-grid');
+    if (featuredGrid && typeof products !== 'undefined') {
+        console.log('Rendering featured products:', products);
+        products.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
+                <div class="product-image">${product.image}</div>
+                <div class="product-info">
+                    <h3 class="product-title">${product.title}</h3>
+                    <span class="product-price">$${product.price}</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            `;
+            featuredGrid.appendChild(productCard);
+        });
+    } else {
+        console.error('Featured products not defined or grid not found. Check if products.js is loaded before scripts.js.');
+    }
+
+    // Render cheap products
+    const cheapGrid = document.querySelector('#cheap-grid');
+    if (cheapGrid && typeof cheapProducts !== 'undefined') {
+        console.log('Rendering cheap products:', cheapProducts);
+        cheapProducts.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
+                <div class="product-image">${product.image}</div>
+                <div class="product-info">
+                    <h3 class="product-title">${product.title}</h3>
+                    <span class="product-price">$${product.price}</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            `;
+            cheapGrid.appendChild(productCard);
+        });
+    } else {
+        console.error('Cheap products not defined or grid not found. Check products.js.');
+    }
+
+    // Render new products
+    const newGrid = document.querySelector('#new-grid');
+    if (newGrid && typeof newProducts !== 'undefined') {
+        console.log('Rendering new products:', newProducts);
+        newProducts.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
+                <div class="product-image">${product.image}</div>
+                <div class="product-info">
+                    <h3 class="product-title">${product.title}</h3>
+                    <span class="product-price">$${product.price}</span>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            `;
+            newGrid.appendChild(productCard);
+        });
+    } else {
+        console.error('New products not defined or grid not found. Check products.js.');
+    }
+
+    // Attach listeners và animation cho tất cả cards sau khi render toàn bộ
+    attachAddToCartListeners();
+
+    const allCards = document.querySelectorAll('.product-card');
+    if (allCards.length === 0) {
+        console.error('No product cards found. Check if grids exist in HTML and products are defined.');
+    }
+    allCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
         }, index * 100);
     });
-    
-    showNotification('🏮 Welcome to SynthiaMall Obon Festival Collection!');
+    allCards.forEach(el => observer.observe(el));
 });

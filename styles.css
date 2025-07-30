@@ -28,8 +28,8 @@
     --shadow-sm: 0 2px 8px rgba(44, 24, 16, 0.06);
     --shadow-md: 0 4px 16px rgba(44, 24, 16, 0.08);
     --shadow-lg: 0 8px 32px rgba(44, 24, 16, 0.10);
-    --shadow-warm: 0 4px 20px rgba(255, 140, 66, 0.25);
-    --shadow-glow: 0 0 20px rgba(255, 182, 39, 0.3);
+    --shadow-warm: 0 4px 20px rgba(255, 140, 66, 0.15); /* Giảm opacity để dịu hơn */
+    --shadow-glow: 0 0 20px rgba(255, 182, 39, 0.2); /* Giảm opacity để dịu hơn */
 }
 
 /* Base Styles */
@@ -211,8 +211,8 @@ body {
 }
 
 .cart-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 140, 66, 0.35);
+    transform: translateY(-1px); /* Giảm từ -2px để dịu hơn */
+    box-shadow: 0 6px 25px rgba(255, 140, 66, 0.25); /* Giảm opacity nhẹ */
 }
 
 /* Navigation */
@@ -249,7 +249,7 @@ body {
 .nav-menu a:hover {
     background: var(--light-gray);
     color: var(--warm-coral);
-    transform: translateY(-1px);
+    transform: translateY(-1px); /* Giữ nguyên, đã dịu */
 }
 
 .nav-menu a.active {
@@ -275,8 +275,7 @@ body {
     padding: 28px;
     box-shadow: var(--shadow-md);
     height: fit-content;
-    position: sticky;
-    top: 140px;
+    position: static; /* Đổi sang static để sidebar cuộn theo trang, không cố định */
     border: 1px solid var(--border-gray);
 }
 
@@ -318,7 +317,7 @@ body {
 .category-list a:hover {
     background: var(--light-gray);
     color: var(--warm-coral);
-    transform: translateX(4px);
+    transform: translateX(2px); /* Giảm từ 4px để dịu hơn */
 }
 
 .category-list i {
@@ -422,68 +421,8 @@ body {
 }
 
 .hero-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 140, 66, 0.4);
-}
-
-/* Category Showcase */
-.category-showcase {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 36px;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-gray);
-}
-
-.category-showcase h2 {
-    text-align: center;
-    color: var(--charcoal);
-    margin-bottom: 32px;
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-}
-
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 20px;
-}
-
-.category-card {
-    text-align: center;
-    padding: 28px 20px;
-    border-radius: 12px;
-    background: var(--light-gray);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 1px solid var(--border-gray);
-    position: relative;
-}
-
-.category-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--obon-orange);
-    box-shadow: var(--shadow-warm);
-    background: var(--white);
-}
-
-.category-card i {
-    font-size: 36px;
-    color: var(--text-gray);
-    margin-bottom: 16px;
-    transition: all 0.3s ease;
-}
-
-.category-card:hover i {
-    color: var(--warm-coral);
-    transform: scale(1.1);
-}
-
-.category-card span {
-    font-weight: 600;
-    color: var(--charcoal);
-    font-size: 14px;
+    transform: translateY(-2px); /* Giảm từ -3px để dịu hơn */
+    box-shadow: 0 8px 30px rgba(255, 140, 66, 0.3); /* Giảm opacity nhẹ */
 }
 
 /* Featured Products */
@@ -502,6 +441,10 @@ body {
     font-size: 32px;
     font-weight: 800;
     letter-spacing: -0.5px;
+    text-decoration: underline;
+    text-decoration-color: var(--obon-orange);
+    text-underline-offset: 8px; /* Khoảng cách từ chữ đến đường gạch chân */
+    text-decoration-thickness: 4px; /* Độ dày đường gạch chân */
 }
 
 .product-grid {
@@ -520,7 +463,7 @@ body {
 }
 
 .product-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px); /* Giảm từ -8px để dịu hơn */
     border-color: var(--obon-orange);
     box-shadow: var(--shadow-warm);
     background: var(--white);
@@ -566,9 +509,9 @@ body {
 
 .product-price {
     color: var(--warm-coral);
-    font-size: 20px;
+    font-size: 24px; /* Tăng từ 20px lên 24px để hiển thị cao/lớn hơn */
     font-weight: 800;
-    margin-bottom: 16px;
+    margin-bottom: 20px; /* Tăng khoảng cách từ 16px lên 20px để cách xa button hơn */
 }
 
 .add-to-cart {
@@ -586,7 +529,7 @@ body {
 
 .add-to-cart:hover {
     background: var(--warm-coral);
-    transform: translateY(-2px);
+    transform: translateY(-1px); /* Giảm từ -2px để dịu hơn */
     box-shadow: var(--shadow-glow);
 }
 
@@ -630,7 +573,7 @@ body {
     }
 
     .sidebar {
-        position: static;
+        position: static; /* Giữ static để cuộn theo trên màn hình nhỏ */
     }
 }
 
@@ -643,10 +586,6 @@ body {
 
     .hero-content h1 {
         font-size: 36px;
-    }
-
-    .category-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
 
     .product-grid {
@@ -687,31 +626,3 @@ button:focus, input:focus, a:focus {
     background: var(--warm-coral);
 }
 
-/* Special Obon Elements */
-.lantern-glow {
-    box-shadow: var(--shadow-glow);
-    animation: lantern-flicker 3s ease-in-out infinite alternate;
-}
-
-@keyframes lantern-flicker {
-    0% { box-shadow: var(--shadow-glow); }
-    50% { box-shadow: 0 0 25px rgba(255, 182, 39, 0.4); }
-    100% { box-shadow: var(--shadow-glow); }
-}
-
-/* Warm accent for special elements */
-.obon-accent {
-    background: var(--gradient-lantern);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.obon-accent::before {
-    content: "🏮";
-    font-size: 16px;
-}
