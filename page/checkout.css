@@ -1,23 +1,18 @@
 /* =========================
    RESET + CƠ BẢN
 ========================= */
-body {
-  font-family: Arial, sans-serif;
-  background: #FFF8F0;
-  margin: 0;
-  padding: 0;
-}
+
 
 .checkout-container {
   max-width: 650px;
-  margin: 30px auto;
+  margin: 20px auto;
   background: white;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-h1, h2 {
+.checkout-container h1, .checkout-container h2 {
   color: #FF6B35;
   margin-bottom: 10px;
 }
@@ -87,7 +82,7 @@ h1, h2 {
   margin-bottom: 5px;
 }
 
-input, select {
+.checkout-container input, .checkout-container select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -95,7 +90,7 @@ input, select {
   transition: 0.2s;
 }
 
-input:focus, select:focus {
+.checkout-container input:focus, .checkout-container select:focus {
   border-color: #FF8C42;
   box-shadow: 0 0 4px rgba(255, 140, 66, 0.3);
   outline: none;
@@ -115,7 +110,7 @@ input:focus, select:focus {
 /* =========================
    NÚT
 ========================= */
-button {
+.btn-next {
   background: #FF8C42;
   border: none;
   padding: 12px 20px;
@@ -128,11 +123,11 @@ button {
   transition: 0.3s;
 }
 
-button:hover {
+.btn-next:hover {
   opacity: 0.9;
 }
 
-.buttons {
+.btn-next {
   display: flex;
   justify-content: center;
   gap: 15px;
