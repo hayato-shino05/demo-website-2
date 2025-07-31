@@ -152,3 +152,28 @@ document.addEventListener("DOMContentLoaded", () => {
     openTab({ currentTarget: defBtn }, defBtn.getAttribute("onclick").split("'")[1]);
   }
 });
+// ==============================
+// 🔥 SORT RELATED PRODUCTS
+// ==============================
+const relatedSortSelect = document.getElementById("relatedSortSelect");
+const relatedGrid = document.getElementById("relatedGrid");
+
+if (relatedSortSelect && relatedGrid) {
+  relatedSortSelect.addEventListener("change", () => {
+    const relatedItems = Array.from(relatedGrid.querySelectorAll(".related-card"));
+    const sortValue = relatedSortSelect.value;
+
+    relatedItems.sort((a, b) => {
+      const priceA = parseFloat(a.dataset.price);
+      const priceB = parseFloat(b.dataset.price);
+
+      if (sortValue === "priceLow") return priceA - priceB;
+      if (sortValue === "priceHigh") return priceB - priceA;
+      return 0; // giữ nguyên cho popular, new
+    });
+
+    relatedGrid.innerHTML = "";
+    relatedItems.forEach(item => relatedGrid.appendChild(item));
+  });
+}
+
