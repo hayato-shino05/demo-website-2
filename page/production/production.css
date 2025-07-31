@@ -2,8 +2,6 @@
    BIẾN MÀU VÀ FONT
 ========================= */
 :root {
-  --obon-orange: #FF8C42;
-  --golden-yellow: #FFB627;
   --deep-vermilion: #E63946;
   --warm-coral: #FF6B6B;
   --charcoal: #333;
@@ -13,7 +11,6 @@
   --shadow-medium: rgba(0, 0, 0, 0.12);
   --shadow-warm: rgba(230, 57, 70, 0.2);
 
-  --gradient-sunset: linear-gradient(135deg, var(--obon-orange), var(--golden-yellow));
 }
 
 /* =========================

@@ -39,6 +39,29 @@
     box-sizing: border-box;
 }
 
+/* Global link styles - remove underlines and prevent color changes */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    color: inherit;
+}
+
+a:focus {
+    outline: none;
+    color: inherit;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     background: var(--cream);
@@ -103,7 +126,10 @@ body {
 }
 
 /* Logo with Obon Theme */
-.main-header-content a {
+.main-header-content a,
+.main-header-content a:visited,
+.main-header-content a:hover,
+.main-header-content a:active {
     text-decoration: none;
     color: inherit;
 }
