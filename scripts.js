@@ -191,14 +191,27 @@ document.addEventListener('DOMContentLoaded', () => {
         products.forEach(product => {
             const productCard = document.createElement('div');
             productCard.className = 'product-card';
-            productCard.innerHTML = `
+            
+            // Create wrapper for the clickable content
+            const clickableWrapper = document.createElement('a');
+            clickableWrapper.href = 'page/production/production.html';
+            clickableWrapper.style.textDecoration = 'none';
+            clickableWrapper.style.color = 'inherit';
+            clickableWrapper.innerHTML = `
                 <div class="product-image">${product.image}</div>
                 <div class="product-info">
                     <h3 class="product-title">${product.title}</h3>
                     <span class="product-price">$${product.price}</span>
-                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             `;
+            
+            // Create separate container for the button
+            const buttonContainer = document.createElement('div');
+            buttonContainer.className = 'product-info';
+            buttonContainer.innerHTML = `<button class="add-to-cart">Add to Cart</button>`;
+            
+            productCard.appendChild(clickableWrapper);
+            productCard.appendChild(buttonContainer);
             featuredGrid.appendChild(productCard);
         });
     } else {
@@ -212,14 +225,27 @@ document.addEventListener('DOMContentLoaded', () => {
         cheapProducts.forEach(product => {
             const productCard = document.createElement('div');
             productCard.className = 'product-card';
-            productCard.innerHTML = `
+            
+            // Create wrapper for the clickable content
+            const clickableWrapper = document.createElement('a');
+            clickableWrapper.href = 'page/production/production.html';
+            clickableWrapper.style.textDecoration = 'none';
+            clickableWrapper.style.color = 'inherit';
+            clickableWrapper.innerHTML = `
                 <div class="product-image">${product.image}</div>
                 <div class="product-info">
                     <h3 class="product-title">${product.title}</h3>
                     <span class="product-price">$${product.price}</span>
-                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             `;
+            
+            // Create separate container for the button
+            const buttonContainer = document.createElement('div');
+            buttonContainer.className = 'product-info';
+            buttonContainer.innerHTML = `<button class="add-to-cart">Add to Cart</button>`;
+            
+            productCard.appendChild(clickableWrapper);
+            productCard.appendChild(buttonContainer);
             cheapGrid.appendChild(productCard);
         });
     } else {
@@ -233,14 +259,27 @@ document.addEventListener('DOMContentLoaded', () => {
         newProducts.forEach(product => {
             const productCard = document.createElement('div');
             productCard.className = 'product-card';
-            productCard.innerHTML = `
+            
+            // Create wrapper for the clickable content
+            const clickableWrapper = document.createElement('a');
+            clickableWrapper.href = 'page/production/production.html';
+            clickableWrapper.style.textDecoration = 'none';
+            clickableWrapper.style.color = 'inherit';
+            clickableWrapper.innerHTML = `
                 <div class="product-image">${product.image}</div>
                 <div class="product-info">
                     <h3 class="product-title">${product.title}</h3>
                     <span class="product-price">$${product.price}</span>
-                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             `;
+            
+            // Create separate container for the button
+            const buttonContainer = document.createElement('div');
+            buttonContainer.className = 'product-info';
+            buttonContainer.innerHTML = `<button class="add-to-cart">Add to Cart</button>`;
+            
+            productCard.appendChild(clickableWrapper);
+            productCard.appendChild(buttonContainer);
             newGrid.appendChild(productCard);
         });
     } else {
