@@ -58,62 +58,159 @@
     </nav>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
   <main class="obon-container">
-    <section class="obon-top">
-      <div class="obon-gallery">
-        <img id="mainImg" src="https://placehold.co/500x500/E2E8F0/475569?text=Main+Product" alt="Main Product Image">
-        <div class="obon-thumbs">
-          <img src="https://placehold.co/100x100/E2E8F0/475569?text=Thumb+1" onclick="changeImage(this)">
-          <img src="https://placehold.co/100x100/E2E8F0/475569?text=Thumb+2" onclick="changeImage(this)">
-          <img src="https://placehold.co/100x100/E2E8F0/475569?text=Thumb+3" onclick="changeImage(this)">
+    <!-- Gallery -->
+    <div class="obon-gallery">
+      <img id="mainImg" src="https://placehold.co/500x500/E2E8F0/475569?text=Main+Product" alt="Product">
+      <div class="obon-thumbs">
+        <img src="https://placehold.co/500x500/FECACA/7F1D1D?text=Red" onclick="changeImage(this)">
+        <img src="https://placehold.co/500x500/F3F4F6/111827?text=White" onclick="changeImage(this)">
+        <img src="https://placehold.co/500x500/FDE68A/78350F?text=Golden" onclick="changeImage(this)">
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="obon-info">
+      <h1>Handcrafted Obon Lantern</h1>
+      <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+      <p class="price">$39.99 <del>$49.99</del></p>
+      <p class="stock-status">✅ In Stock – Ready to Ship</p>
+
+      <div class="options">
+        <label>🎨 Color:</label>
+        <div class="option-buttons" id="color-options">
+          <button>Red</button><button>White</button><button>Golden</button>
         </div>
       </div>
-      <div class="obon-info">
-        <h1>Handcrafted Obon Lantern</h1>
-        <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
-        <p class="price">$39.99 <del>$49.99</del></p>
-        <p class="short-desc">
-          Beautiful handcrafted lantern for Obon festival, bringing warm light and spiritual ambiance.
-        </p>
-        <div class="actions">
-          <input type="number" id="qty" value="1" min="1">
-          <button class="btn add-cart">🛒 Add to Cart</button>
-          <button class="btn buy-now">⚡ Buy Now</button>
+
+      <div class="options">
+        <label>📏 Size:</label>
+        <div class="option-buttons" id="size-options">
+          <button>Small (20cm)</button><button>Medium (30cm)</button><button>Large (40cm)</button>
         </div>
       </div>
+
+      <p class="short-desc">
+        Beautiful handcrafted lantern for the Obon Festival, bringing warm light and spiritual ambiance to your home.
+      </p>
+
+      <div class="actions">
+        <input type="number" id="qty" value="1" min="1" />
+        <button class="btn add-cart">🛒 Add to Cart</button>
+        <button class="btn buy-now">⚡ Buy Now</button>
+      </div>
+
+      <div class="features">
+        <div><i class="fas fa-truck"></i> Free Shipping</div>
+        <div><i class="fas fa-gift"></i> Handmade</div>
+        <div><i class="fas fa-shield-alt"></i> Secure Payment</div>
+      </div>
+
+      <div class="delivery-info">🚀 <strong>Fast Delivery:</strong> 3–5 business days (Free for orders over $50)</div>
+    </div>
+
+    <!-- Tabs -->
+    <section class="obon-tabs">
+ 
+  <div class="tab-buttons">
+    <button class="tab-btn active" onclick="openTab(event,'desc')">
+      <i class="fa-solid fa-file-lines"></i> Description
+    </button>
+    <button class="tab-btn" onclick="openTab(event,'reviews')">
+      <i class="fa-solid fa-star"></i> Reviews (12)
+    </button>
+    <button class="tab-btn" onclick="openTab(event,'related')">
+      <i class="fa-solid fa-lightbulb"></i> Related
+    </button>
+  </div>
+
+  <!-- 📄 Description -->
+  <div id="desc" class="tab-content active">
+    <h2><i class="fa-solid fa-file-lines"></i> Product Description</h2>
+    <p class="desc-text">
+      This <strong>Handcrafted Obon Lantern</strong> is made with traditional Japanese 
+      craftsmanship, perfect for <em>Obon festivals</em>, meditation, or as a cozy 
+      home decoration.
+    </p>
+    <ul class="desc-list">
+      <li><i class="fa-solid fa-circle-check"></i> Material: High-quality bamboo & rice paper</li>
+      <li><i class="fa-solid fa-circle-check"></i> Height: 35cm | Weight: 400g</li>
+      <li><i class="fa-solid fa-circle-check"></i> Warm ambient light for festivals and home</li>
+      <li><i class="fa-solid fa-circle-check"></i> Eco-friendly and handmade by artisans</li>
+    </ul>
+
+    <div class="center-btn">
+      <button class="btn-action btn-readmore" onclick="toggleReadMore(this)">
+        <i class="fa-solid fa-book-open"></i> Read More
+      </button>
+    </div>
+
+    <div class="extra-desc">
+      <p><i class="fa-solid fa-seedling"></i> Each lantern is carefully crafted by Japanese artisans with over 20 years of experience.</p>
+      <p><i class="fa-solid fa-gift"></i> Perfect as a gift for housewarming, spiritual events, or interior decoration.</p>
+    </div>
+  </div>
+
+  <!-- ⭐ Reviews -->
+  <div id="reviews" class="tab-content">
+    <h2><i class="fa-solid fa-star"></i> Customer Reviews</h2>
+
+    <div class="review-item">
+      <img src="https://i.pravatar.cc/50?img=12" alt="User">
+      <div>
+        <p>⭐⭐⭐⭐⭐ <strong>Amazing!</strong> <span class="date">- 3 days ago</span></p>
+        <p>"Absolutely beautiful lantern. Creates a warm and spiritual vibe!"</p>
+      </div>
+    </div>
+
+    <div class="review-item">
+      <img src="https://i.pravatar.cc/50?img=7" alt="User">
+      <div>
+        <p>⭐⭐⭐⭐ <strong>Great quality!</strong> <span class="date">- 1 week ago</span></p>
+        <p>"Good craftsmanship and fast shipping. Worth every penny!"</p>
+      </div>
+    </div>
+
+    <div class="center-btn">
+      <button class="btn-action btn-loadmore" onclick="loadMoreReviews(this)">
+        <i class="fa-solid fa-rotate-right"></i> Load More Reviews
+      </button>
+    </div>
+  </div>
+
+  <!-- 🏮 Related Products -->
+  <div id="related" class="tab-content">
+    <h2><i class="fa-solid fa-lightbulb"></i> Related Products</h2>
+
+    <div class="related-grid">
+      <div class="related-card">
+        <img src="https://placehold.co/200x200/E2E8F0/475569?text=Lantern+A" alt="Lantern A">
+        <p><strong>Mini Lantern</strong> - $19.99</p>
+        <button class="btn-action btn-addcart"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+      </div>
+
+      <div class="related-card">
+        <img src="https://placehold.co/200x200/E2E8F0/475569?text=Lantern+B" alt="Lantern B">
+        <p><strong>Golden Glow Lantern</strong> - $29.99</p>
+        <button class="btn-action btn-addcart"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+      </div>
+
+      <div class="related-card">
+        <img src="https://placehold.co/200x200/E2E8F0/475569?text=Lantern+C" alt="Lantern C">
+        <p><strong>Festival Lantern</strong> - $24.99</p>
+        <button class="btn-action btn-addcart"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+      </div>
+
+      <div class="related-card">
+        <img src="https://placehold.co/200x200/E2E8F0/475569?text=Lantern+D" alt="Lantern D">
+        <p><strong>Elegant Lantern</strong> - $34.99</p>
+        <button class="btn-action btn-addcart"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+      </div>
+    </div>
+  </div>
     </section>
 
-    <section class="obon-tabs">
-      <div class="tab-buttons">
-        <button class="tab-btn active" onclick="openTab(event,'desc')">Description</button>
-        <button class="tab-btn" onclick="openTab(event,'reviews')">Reviews</button>
-        <button class="tab-btn" onclick="openTab(event,'related')">Related</button>
-      </div>
-      <div id="desc" class="tab-content active">
-        <h2>Product Description</h2>
-        <p>
-          This lantern is carefully crafted with traditional Japanese design, perfect for festivals, meditation, or home decoration.
-        </p>
-      </div>
-      <div id="reviews" class="tab-content">
-        <h2>Customer Reviews</h2>
-        <p>⭐⭐⭐⭐⭐ "Absolutely beautiful lantern, warm and spiritual vibe!"</p>
-      </div>
-      <div id="related" class="tab-content">
-        <h2>Related Products</h2>
-        <div class="related-grid">
-          <div class="related-card">
-            <img src="https://placehold.co/200x200/E2E8F0/475569?text=Lantern+A" alt="Lantern A">
-            <p>Mini Lantern - $19.99</p>
-          </div>
-          <div class="related-card">
-            <img src="https://placehold.co/200x200/E2E8F0/475569?text=Lantern+B" alt="Lantern B">
-            <p>Golden Glow Lantern - $29.99</p>
-          </div>
-        </div>
-      </div>
-    </section>
+
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -125,7 +222,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../production/production.js"></script>
   <script>
     // JS chung của bạn (cart, search, animation...) giữ nguyên
     function changeImage(img){document.getElementById("mainImg").src=img.src;}
