@@ -66,7 +66,6 @@
     <main class="checkout-container">
     <h1>🏮 Thanh toán đơn hàng</h1>
 
-    <!-- Progress Steps -->
     <div class="progress-bar">
       <div class="step active">1. Giao hàng</div>
       <div class="step">2. Thanh toán</div>
@@ -74,18 +73,26 @@
     </div>
 
     <form id="checkoutForm">
-      <!-- BƯỚC 1: THÔNG TIN GIAO HÀNG -->
+      <!-- Bước 1 -->
       <section class="checkout-step active">
         <h2>Thông tin giao hàng</h2>
-        <div class="form-group"><label>Họ và tên *</label><input type="text" required></div>
-        <div class="form-group"><label>Email *</label><input type="email" required></div>
-        <div class="form-group"><label>Số điện thoại *</label><input type="tel" required></div>
-        <div class="form-group"><label>Địa chỉ *</label><input type="text" required></div>
+        <div class="form-group"><label>Họ và tên *</label><input type="text" required /></div>
+        <div class="form-group"><label>Email *</label><input type="email" required /></div>
+        <div class="form-group"><label>Số điện thoại *</label><input type="tel" required /></div>
+        <div class="form-group"><label>Địa chỉ *</label><input type="text" required /></div>
 
         <div class="form-row">
-          <select required><option value="">Tỉnh/Thành</option><option>Hà Nội</option><option>TP.HCM</option></select>
-          <select required><option value="">Quận/Huyện</option></select>
-          <select required><option value="">Phường/Xã</option></select>
+          <select id="province" required>
+            <option value="">Tỉnh/Thành</option>
+            <option value="Hà Nội">Hà Nội</option>
+            <option value="TP.HCM">TP.HCM</option>
+          </select>
+          <select id="district" required>
+            <option value="">Quận/Huyện</option>
+          </select>
+          <select id="ward" required>
+            <option value="">Phường/Xã</option>
+          </select>
         </div>
 
         <div class="form-group">
@@ -100,37 +107,73 @@
         <button type="button" class="btn-next">Tiếp tục</button>
       </section>
 
-      <!-- BƯỚC 2: PHƯƠNG THỨC THANH TOÁN -->
-      <section class="checkout-step">
-        <h2>Phương thức thanh toán</h2>
+      <!-- Bước 2 -->
+  <section class="checkout-step">
+  <h2>Phương thức thanh toán</h2>
 
-        <label><input type="radio" name="pay" value="cod" checked> Thanh toán COD</label>
-        <label><input type="radio" name="pay" value="wallet"> Ví điện tử</label>
-        <label><input type="radio" name="pay" value="card"> Thẻ Visa/MasterCard</label>
+  <div class="payment-options">
+    <!-- COD -->
+    <label class="payment-card">
+      <input type="radio" name="pay" value="cod" checked>
+      <i class="fas fa-money-bill-wave"></i> <span>Thanh toán COD</span>
+    </label>
 
-        <!-- Ví điện tử -->
-        <div class="extra hidden" id="walletFields">
-          <label>Chọn ví:</label>
-          <select><option>MoMo (****1234)</option><option>ZaloPay (****5678)</option></select>
-        </div>
+    <!-- Ví điện tử -->
+    <label class="payment-card">
+      <input type="radio" name="pay" value="wallet">
+      <i class="fas fa-wallet"></i> <span>Ví điện tử</span>
+    </label>
 
-        <!-- Thẻ -->
-        <div class="extra hidden" id="cardFields">
-          <input type="text" placeholder="Số thẻ">
-          <input type="text" placeholder="Tên chủ thẻ">
-          <div class="form-row">
-            <input type="text" placeholder="MM/YY">
-            <input type="text" placeholder="CVV">
-          </div>
-        </div>
+    <!-- Thẻ Visa/MasterCard -->
+    <label class="payment-card">
+      <input type="radio" name="pay" value="card">
+      <i class="fas fa-credit-card"></i> <span>Thẻ Visa / MasterCard</span>
+    </label>
+  </div>
 
-        <div class="buttons">
-          <button type="button" class="btn-back">Quay lại</button>
-          <button type="button" class="btn-next">Tiếp tục</button>
-        </div>
-      </section>
+  <!-- Form chọn ví -->
+  <div id="walletFields" class="extra hidden">
+    <label>Chọn ví:</label>
+    <select>
+      <option>MoMo</option>
+      <option>ZaloPay</option>
+      <option>VNPay</option>
+    </select>
+  </div>
 
-      <!-- BƯỚC 3: XÁC NHẬN -->
+  <!-- Form nhập Visa/MasterCard -->
+  <div id="cardFields" class="extra hidden card-form">
+    <div class="form-group">
+      <label>Số thẻ</label>
+      <input type="text" placeholder="XXXX XXXX XXXX XXXX" required>
+    </div>
+
+    <div class="form-group">
+      <label>Tên chủ thẻ</label>
+      <input type="text" placeholder="NGUYEN VAN A" required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Hết hạn</label>
+        <input type="text" placeholder="MM/YY" required>
+      </div>
+      <div class="form-group">
+        <label>CVV</label>
+        <input type="text" placeholder="123" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button type="button" class="btn-back">Quay lại</button>
+    <button type="button" class="btn-next">Tiếp tục</button>
+  </div>
+</section>
+
+
+
+      <!-- Bước 3 -->
       <section class="checkout-step">
         <h2>Xác nhận đơn hàng</h2>
         <p>Vui lòng kiểm tra lại thông tin và xác nhận đặt hàng.</p>
@@ -150,7 +193,6 @@
     </form>
   </main>
 
-  <!-- POPUP -->
   <div class="popup hidden" id="popup">
     <div class="popup-content">
       <h3>🎉 Đặt hàng thành công!</h3>
@@ -166,6 +208,7 @@
             <p>&copy; 2025 SynthiaMall. Designed with 🏮 for the Obon Festival</p>
         </div>
     </footer>
+    <script src="checkout.js"></script>
 
     <script>
         // Cart functionality with modern UX
@@ -216,7 +259,11 @@
                 showNotification(`🔍 Searching for: ${searchTerm}`);
             }
         }
-
+ <div class="form-row">
+          <select required><option value="">Tỉnh/Thành</option><option>Hà Nội</option><option>TP.HCM</option></select>
+          <select required><option value="">Quận/Huyện</option></select>
+          <select required><option value="">Phường/Xã</option></select>
+        </div>
         // Modern notification system
         function showNotification(message) {
             const notification = document.createElement('div');

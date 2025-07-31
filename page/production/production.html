@@ -123,9 +123,7 @@
     <button class="tab-btn" onclick="openTab(event,'reviews')">
       <i class="fa-solid fa-star"></i> Reviews (12)
     </button>
-    <button class="tab-btn" onclick="openTab(event,'related')">
-      <i class="fa-solid fa-lightbulb"></i> Related
-    </button>
+   
   </div>
 
   <!-- 📄 Description -->
@@ -156,31 +154,25 @@
   </div>
 
   <!-- ⭐ Reviews -->
-  <div id="reviews" class="tab-content">
-    <h2><i class="fa-solid fa-star"></i> Customer Reviews</h2>
-
-    <div class="review-item">
-      <img src="https://i.pravatar.cc/50?img=12" alt="User">
-      <div>
-        <p>⭐⭐⭐⭐⭐ <strong>Amazing!</strong> <span class="date">- 3 days ago</span></p>
-        <p>"Absolutely beautiful lantern. Creates a warm and spiritual vibe!"</p>
+<div id="reviews" class="tab-content">
+  <div class="reviews">
+    <h3>Customer Reviews</h3>
+    <div id="reviewList">
+      <div class="review-item">
+        <img src="https://i.pravatar.cc/50?img=10" alt="User">
+        <div>
+          <p>⭐⭐⭐⭐⭐ <strong>Great Product!</strong> <span class="date">- 2 days ago</span></p>
+          <p>"Very satisfied with the quality and fast delivery."</p>
+        </div>
       </div>
     </div>
 
-    <div class="review-item">
-      <img src="https://i.pravatar.cc/50?img=7" alt="User">
-      <div>
-        <p>⭐⭐⭐⭐ <strong>Great quality!</strong> <span class="date">- 1 week ago</span></p>
-        <p>"Good craftsmanship and fast shipping. Worth every penny!"</p>
-      </div>
-    </div>
-
-    <div class="center-btn">
-      <button class="btn-action btn-loadmore" onclick="loadMoreReviews(this)">
-        <i class="fa-solid fa-rotate-right"></i> Load More Reviews
-      </button>
-    </div>
+    <button class="btn-action btn-loadmore" onclick="loadMoreReviews(this)">
+      <i class="fa-solid fa-plus"></i> Load More Reviews
+    </button>
   </div>
+</div>
+
 
   <!-- 🏮 Related Products -->
   <div id="related" class="tab-content">
@@ -289,7 +281,7 @@
     </div>
   </footer>
 
-  <script src="../production/production.js"></script>
+  <script src="production.js"></script>
   <script>
     // JS chung của bạn (cart, search, animation...) giữ nguyên
     function changeImage(img){document.getElementById("mainImg").src=img.src;}

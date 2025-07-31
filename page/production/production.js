@@ -1,6 +1,4 @@
-// ==============================
 // 1️⃣ Đổi ảnh chính khi click thumbnail
-// ==============================
 function changeImage(img) {
   const mainImg = document.getElementById("mainImg");
   mainImg.src = img.src;
@@ -11,59 +9,57 @@ function changeImage(img) {
   img.classList.add("active");
 }
 
-// ==============================
-// 2️⃣ Chuyển tab hiển thị nội dung + hiệu ứng
-// ==============================
+// 2️⃣ Chuyển tab
 function openTab(evt, tabName) {
-  document.querySelectorAll(".tab-content")
-    .forEach(c => c.classList.remove("active", "fade-in"));
+  document.querySelectorAll(".tab-content").forEach(c => {
+    c.classList.remove("active", "fade-in");
+  });
 
-  document.querySelectorAll(".tab-btn")
-    .forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(b => {
+    b.classList.remove("active");
+  });
 
   const tab = document.getElementById(tabName);
-  tab.classList.add("active");
-  setTimeout(() => tab.classList.add("fade-in"), 10); // animation mượt
+  if (tab) {
+    tab.classList.add("active");
+    setTimeout(() => tab.classList.add("fade-in"), 10);
+  }
 
-  evt.currentTarget.classList.add("active");
-}
-
-// ==============================
-// 3️⃣ Nút Read More trong Description
-// ==============================
-function toggleReadMore(btn) {
-  const extra = btn.nextElementSibling;
-  extra.classList.toggle("show");
-
-  if (extra.classList.contains("show")) {
-    btn.innerHTML = `<i class="fa-solid fa-angles-up"></i> Show Less`;
-  } else {
-    btn.innerHTML = `<i class="fa-solid fa-book-open"></i> Read More`;
+  if (evt && evt.currentTarget) {
+    evt.currentTarget.classList.add("active");
   }
 }
 
-// ==============================
+// 3️⃣ Nút Read More
+function toggleReadMore(btn) {
+  const extra = btn.nextElementSibling;
+  extra.classList.toggle("show");
+  btn.innerHTML = extra.classList.contains("show")
+    ? `<i class="fa-solid fa-angles-up"></i> Show Less`
+    : `<i class="fa-solid fa-book-open"></i> Read More`;
+}
+
 // 4️⃣ Load More Reviews
-// ==============================
-function loadMoreReviews(btn) {
+function loadMoreReviews() {
+  const reviewList = document.getElementById("reviewList");
+  if (!reviewList) return;
+
   const newReview = document.createElement("div");
   newReview.className = "review-item fade-in";
   newReview.innerHTML = `
-    <img src="https://i.pravatar.cc/50?img=${Math.floor(Math.random()*50)}" alt="User">
+    <img src="https://i.pravatar.cc/50?img=${Math.floor(Math.random() * 50)}" alt="User">
     <div>
       <p>⭐⭐⭐⭐⭐ <strong>Love it!</strong> <span class="date">- just now</span></p>
       <p>"Great quality and fast shipping. Highly recommend!"</p>
-    </div>`;
-  btn.before(newReview);
+    </div>
+  `;
 
+  reviewList.appendChild(newReview);
   showNotification(`<i class="fa-solid fa-comment-dots"></i> New review loaded!`);
 }
 
-// ==============================
-// 5️⃣ Giỏ hàng demo (Add to Cart)
-// ==============================
-let cartCount = 0;
-let cartTotal = 0;
+// 5️⃣ Giỏ hàng demo
+let cartCount = 0, cartTotal = 0;
 const cartBtn = document.querySelector(".cart-btn");
 
 document.querySelectorAll(".add-cart").forEach(btn => {
@@ -89,9 +85,7 @@ function updateCartDisplay() {
   }
 }
 
-// ==============================
 // 6️⃣ Notification
-// ==============================
 function showNotification(message) {
   const n = document.createElement("div");
   n.className = "notification";
@@ -103,20 +97,16 @@ function showNotification(message) {
   n.addEventListener("transitionend", () => n.remove());
 }
 
-// ==============================
-// 7️⃣ Xử lý nút Add trong Related Products
-// ==============================
+// 7️⃣ Add trong Related Products
 document.querySelectorAll(".related-card .btn-action").forEach(btn => {
   btn.addEventListener("click", () => {
     showNotification(`<i class="fa-solid fa-cart-plus"></i> Added to cart!`);
   });
 });
 
-// ==============================
-// 8️⃣ Xử lý tìm kiếm demo
-// ==============================
+// 8️⃣ Tìm kiếm demo
 const searchInput = document.querySelector(".search-box input");
-const searchBtn   = document.querySelector(".search-box button");
+const searchBtn = document.querySelector(".search-box button");
 
 if (searchBtn && searchInput) {
   searchBtn.addEventListener("click", handleSearch);
@@ -131,9 +121,7 @@ function handleSearch() {
   showNotification(`<i class="fa-solid fa-magnifying-glass"></i> Searching for: ${term}`);
 }
 
-// ==============================
-// 9️⃣ Keyboard Shortcuts
-// ==============================
+// 9️⃣ Shortcuts
 document.addEventListener("keydown", e => {
   if (e.key === "/" && !["INPUT","TEXTAREA"].includes(e.target.tagName)) {
     e.preventDefault();
@@ -142,9 +130,7 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape" && searchInput) searchInput.blur();
 });
 
-// ==============================
-// 🔟 Khởi tạo khi load trang
-// ==============================
+// 🔟 Khi load trang
 document.addEventListener("DOMContentLoaded", () => {
   showNotification(`<i class="fa-solid fa-gift"></i> Welcome to SynthiaMall Obon Festival!`);
   const defBtn = document.querySelector(".tab-btn.active");
@@ -152,9 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
     openTab({ currentTarget: defBtn }, defBtn.getAttribute("onclick").split("'")[1]);
   }
 });
-// ==============================
-// 🔥 SORT RELATED PRODUCTS
-// ==============================
+
+// 🔥 Sort Related Products
 const relatedSortSelect = document.getElementById("relatedSortSelect");
 const relatedGrid = document.getElementById("relatedGrid");
 
@@ -166,14 +151,12 @@ if (relatedSortSelect && relatedGrid) {
     relatedItems.sort((a, b) => {
       const priceA = parseFloat(a.dataset.price);
       const priceB = parseFloat(b.dataset.price);
-
       if (sortValue === "priceLow") return priceA - priceB;
       if (sortValue === "priceHigh") return priceB - priceA;
-      return 0; // giữ nguyên cho popular, new
+      return 0;
     });
 
     relatedGrid.innerHTML = "";
     relatedItems.forEach(item => relatedGrid.appendChild(item));
   });
 }
-
