@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SynthiaMall - Cart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="top-header">
+      <div class="top-header-content">
+        <div class="header-info">
+          <span><i class="fas fa-phone"></i> +1 234 567 8900</span>
+          <span><i class="fas fa-envelope"></i> hello@synthiamall.com</span>
+        </div>
+        <div class="header-info">
+          <span><i class="fas fa-truck"></i> Free Shipping Over $50</span>
+          <span><i class="fas fa-fire"></i> Obon Festival Live</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-header">
+      <div class="main-header-content">
+        <div class="logo">SynthiaMall</div>
+
+        <div class="search-container">
+          <div class="search-box">
+            <input type="text" placeholder="Search for lantern deals and Obon gifts...">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+
+        <div class="user-actions">
+          <select class="user-btn">
+            <option>🇺🇸 English</option>
+            <option>🇻🇳 Tiếng Việt</option>
+            <option>🇯🇵 日本語</option>
+          </select>
+          <button class="user-btn"><i class="fas fa-user"></i></button>
+          <button class="cart-btn">
+            <i class="fas fa-shopping-cart"></i> Cart (2) - 82.980.000₫
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <div class="nav-content">
+        <ul class="nav-menu">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">OBON COLLECTION</a></li>
+          <li><a href="#">FEATURED PRODUCTS</a></li>
+          <li><a href="#">LANTERN DEALS</a></li>
+          <li><a href="#">NEW ARRIVALS</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Cart -->
+  <main class="cart-container">
+    <div class="cart-items">
+      <div class="cart-card">
+        <div class="cart-left">
+          <img src="../inmage/cart.webp">
+          <div class="cart-info">
+            <h4>iPhone 15 Pro Max 256GB</h4>
+            <p>Natural Titanium • 12 months</p>
+            <span class="price">29.990.000₫</span>
+          </div>
+        </div>
+        <div class="quantity-controls">
+          <button class="qty-decrease">-</button>
+          <span class="qty-number">1</span>
+          <button class="qty-increase">+</button>
+        </div>
+        <div class="cart-actions">
+          <span class="item-total">29.990.000₫</span>
+          <button class="remove-btn"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+
+      <div class="cart-card">
+        <div class="cart-left">
+          <img src="https://cdn.tgdd.vn/Products/Images/44/309016/macbook-pro-14-inch-m3-2023-1-2.jpg">
+          <div class="cart-info">
+            <h4>MacBook Pro 14" M3</h4>
+            <p>M3 Pro • 18GB RAM • 512GB SSD</p>
+            <span class="price">52.990.000₫</span>
+          </div>
+        </div>
+        <div class="quantity-controls">
+          <button class="qty-decrease">-</button>
+          <span class="qty-number">1</span>
+          <button class="qty-increase">+</button>
+        </div>
+        <div class="cart-actions">
+          <span class="item-total">52.990.000₫</span>
+          <button class="remove-btn"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-summary">
+      <h3>Order Summary</h3>
+      <div class="summary-line"><span>Subtotal</span><span class="subtotal">82.980.000₫</span></div>
+      <div class="summary-line"><span>Discount</span><span class="discount">-3.000.000₫</span></div>
+      <div class="summary-line"><span>Shipping</span><span class="free">Free</span></div>
+      <div class="summary-line total"><span>Total</span><span class="total">79.980.000₫</span></div>
+
+      <div class="voucher-section">
+        <input type="text" placeholder="Discount code">
+        <button>Apply</button>
+      </div>
+
+      <button class="checkout-btn"><i class="fas fa-credit-card"></i> Checkout</button>
+      <button class="continue-shopping"><i class="fas fa-arrow-left"></i> Continue Shopping</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>🏮 SynthiaMall</h3>
+      <p>Where modern design meets traditional Japanese festival spirit</p>
+      <p>&copy; 2025 SynthiaMall. Designed with 🏮 for the Obon Festival</p>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>

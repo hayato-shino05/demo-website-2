@@ -1,135 +1,182 @@
+/* =========================
+   BIẾN MÀU VÀ FONT
+========================= */
 :root {
   --obon-orange: #FF8C42;
-  --warm-coral: #FF6B35;
   --golden-yellow: #FFB627;
   --deep-vermilion: #E63946;
-  --cream: #FFF8F0;
-  --charcoal: #2C1810;
-  --shadow-light: rgba(0, 0, 0, 0.05);
-  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --warm-coral: #FF6B6B;
+  --charcoal: #333;
+  --sage-mint: #A8D5BA;
+
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-medium: rgba(0, 0, 0, 0.12);
+  --shadow-warm: rgba(230, 57, 70, 0.2);
+
+  --gradient-sunset: linear-gradient(135deg, var(--obon-orange), var(--golden-yellow));
 }
 
-body {
-  background: var(--cream);
-  font-family: Arial, sans-serif;
-  margin: 0;
-  color: var(--charcoal);
-}
-
-/* MAIN CONTENT CONTAINER */
+/* =========================
+   BỐ CỤC CHÍNH
+========================= */
 .obon-container {
   max-width: 1100px;
   margin: 30px auto;
   padding: 20px;
+  font-family: sans-serif;
 }
 
-/* TOP SECTION AS GRID */
+/* Gallery + Info */
 .obon-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: start;
+  align-items: flex-start;
   margin-bottom: 40px;
 }
 
-@media (max-width: 800px) {
-  .obon-top {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-}
-
-/* GALLERY */
+/* =========================
+   GALLERY
+========================= */
 .obon-gallery {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.obon-gallery img {
+.obon-gallery #mainImg {
   width: 100%;
   max-width: 500px;
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--shadow-medium);
+  transition: transform 0.3s ease;
+}
+.obon-gallery #mainImg:hover {
+  transform: scale(1.05);
 }
 
-/* THUMBNAILS */
+/* Thumbnails */
 .obon-thumbs {
   display: flex;
   justify-content: center;
   gap: 12px;
   margin-top: 12px;
 }
-
 .obon-thumbs img {
   width: 60px;
   height: 60px;
+  object-fit: cover;
   border-radius: 6px;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: border 0.2s, transform 0.2s;
+  transition: border-color 0.2s, transform 0.2s;
 }
-
 .obon-thumbs img:hover {
   border-color: var(--obon-orange);
   transform: translateY(-2px);
 }
-
 .obon-thumbs img.active {
   border-color: var(--deep-vermilion);
+  transform: translateY(-2px);
 }
 
-/* PRODUCT INFO PANEL */
+/* =========================
+   INFO
+========================= */
 .obon-info {
   display: flex;
   flex-direction: column;
   background: #fff;
   padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px var(--shadow-light);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.obon-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px var(--shadow-medium);
 }
 
 .obon-info h1 {
   margin: 0 0 12px;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  font-weight: 700;
   color: var(--charcoal);
 }
 
 .obon-info .rating {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: var(--golden-yellow);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .obon-info .price {
-  margin-bottom: 16px;
-  font-size: 1.6rem;
-  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 1.7rem;
+  font-weight: 700;
   color: var(--deep-vermilion);
 }
-
 .obon-info .price del {
   margin-left: 8px;
   font-size: 1rem;
-  color: #777;
+  color: #888;
 }
 
-.obon-info .short-desc {
-  flex: 1;
-  margin-bottom: 20px;
-  line-height: 1.5;
-  color: var(--charcoal);
+.obon-info .stock-status {
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #2e8b57;
 }
 
+/* =========================
+   CHỌN MÀU & SIZE (BUTTON)
+========================= */
+.obon-info .options {
+  margin-bottom: 14px;
+}
+.obon-info .options label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.option-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.option-buttons button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.option-buttons button:hover {
+  border-color: var(--obon-orange);
+  background: #fff7f0;
+}
+.option-buttons button.active {
+  background: var(--obon-orange);
+  color: #fff;
+  border-color: var(--obon-orange);
+}
+
+/* =========================
+   NÚT HÀNH ĐỘNG
+========================= */
 .obon-info .actions {
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
 }
-
 .obon-info .actions input {
-  width: 60px;
-  padding: 8px;
+  width: 70px;
+  padding: 10px;
   font-size: 16px;
   text-align: center;
   border-radius: 6px;
@@ -137,88 +184,224 @@ body {
 }
 
 .obon-info .btn {
-  padding: 10px 16px;
+  padding: 12px 18px;
   border: none;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: bold;
-  transition: opacity 0.3s;
-  min-width: 120px;
+  font-size: 15px;
+  min-width: 130px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease, background 0.3s;
+  position: relative;
+  overflow: hidden;
 }
-
+.obon-info .btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
 .obon-info .add-cart {
-  background: linear-gradient(45deg, var(--obon-orange), var(--golden-yellow));
+  background: linear-gradient(135deg, var(--obon-orange), var(--golden-yellow));
+  color: #fff;
 }
-
 .obon-info .buy-now {
-  background: linear-gradient(45deg, var(--warm-coral), var(--deep-vermilion));
+  background: linear-gradient(135deg, var(--warm-coral), var(--deep-vermilion));
   color: #fff;
 }
 
-.obon-info .btn:hover {
-  opacity: 0.9;
+/* =========================
+   FEATURES
+========================= */
+.obon-info .features {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+.obon-info .features div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+.obon-info .features div:hover {
+  background: #fff4e6;
 }
 
-/* TABS SECTION */
-.obon-tabs {
-  margin-top: 40px;
+/* =========================
+   DELIVERY INFO
+========================= */
+.obon-info .delivery-info {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #444;
 }
+
+/* =========================
+   TABS
+========================= */
 
 .tab-buttons {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  gap: 16px;
+  padding: 14px;
+  background: #fff;
+  border-radius: 12px;
   margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .tab-btn {
-  flex: 1;
-  padding: 10px;
-  font-weight: bold;
+  padding: 12px 26px;
+  font-weight: 600;
   cursor: pointer;
-  border: 2px solid var(--obon-orange);
-  border-radius: 6px;
   background: #fff;
-  transition: background 0.3s, color 0.3s;
+  color: var(--obon-orange);
+  font-size: 15px;
+  border-radius: 10px;
+  border: 2px solid var(--obon-orange);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.tab-btn.active,
 .tab-btn:hover {
   background: var(--obon-orange);
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
 }
 
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--deep-vermilion), var(--warm-coral));
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(230, 57, 70, 0.3);
+}
+
+/* Ripple effect cho tab */
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.6s ease;
+}
+
+.tab-btn:active::after {
+  width: 220%;
+  height: 220%;
+  opacity: 0;
+}
+
+/* Nội dung tab */
 .tab-content {
   display: none;
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px var(--shadow-light);
+  padding: 28px;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 900px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.4s ease-in-out;
+  line-height: 1.7;
 }
 
 .tab-content.active {
   display: block;
 }
 
-/* RELATED PRODUCTS */
-.related-grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.related-card {
-  flex: 1;
-  min-width: 150px;
-  background: #fff;
-  padding: 10px;
+/* =========================
+   NÚT ACTION (Read More, Load More, Add to Cart)
+========================= */
+.btn-action {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--obon-orange), var(--golden-yellow));
+  border: none;
   border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px var(--shadow-light);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.related-card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 8px;
+.btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-action:active {
+  transform: scale(0.96);
+}
+
+/* Hiệu ứng ripple */
+.btn-action::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.8s ease;
+}
+
+.btn-action:active::after {
+  width: 220%;
+  height: 220%;
+  opacity: 0;
+}
+
+/* Các biến thể màu */
+.btn-readmore {
+  background: linear-gradient(135deg, var(--warm-coral), var(--deep-vermilion));
+}
+
+.btn-loadmore {
+  background: linear-gradient(135deg, var(--sage-mint), #3cb371);
+}
+
+.btn-addcart {
+  background: linear-gradient(135deg, var(--obon-orange), var(--golden-yellow));
+}
+
+/* Căn giữa nút */
+.center-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
