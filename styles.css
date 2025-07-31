@@ -103,17 +103,23 @@ body {
 }
 
 /* Logo with Obon Theme */
+.main-header-content a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .logo {
     font-size: 32px;
     font-weight: 800;
     background: var(--gradient-sunset);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
     display: flex;
     align-items: center;
     gap: 12px;
     letter-spacing: -0.5px;
+    min-width: max-content;
 }
 
 .logo::before {
